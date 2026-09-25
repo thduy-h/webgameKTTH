@@ -1,0 +1,171 @@
+export type EcoAction =
+  "Reduce" | "Reuse" | "Repair" | "Share" | "Recycle" | "Dispose";
+export const actions: EcoAction[] = [
+  "Reduce",
+  "Reuse",
+  "Repair",
+  "Share",
+  "Recycle",
+  "Dispose",
+];
+export const actionLabels: Record<EcoAction, string> = {
+  Reduce: "Dùng ít hơn",
+  Reuse: "Dùng lại",
+  Repair: "Sửa chữa",
+  Share: "Chia sẻ",
+  Recycle: "Tái chế",
+  Dispose: "Bỏ đúng nơi",
+};
+export const detectiveScenarios: {
+  id: string;
+  item: string;
+  icon: string;
+  condition: string;
+  best: EcoAction[];
+  explanation: string;
+}[] = [
+  {
+    id: "bag",
+    item: "Cặp sách",
+    icon: "🎒",
+    condition: "Khóa kéo bị hỏng nhưng phần còn lại vẫn tốt",
+    best: ["Repair"],
+    explanation: "Thay hoặc sửa khóa kéo để chiếc cặp tiếp tục đồng hành.",
+  },
+  {
+    id: "shirt",
+    item: "Áo",
+    icon: "👕",
+    condition: "Đã chật nhưng còn tốt",
+    best: ["Share", "Reuse"],
+    explanation: "Tặng lại hoặc để em nhỏ dùng tiếp đều rất tốt.",
+  },
+  {
+    id: "bike",
+    item: "Xe đạp",
+    icon: "🚲",
+    condition: "Bị xẹp lốp",
+    best: ["Repair"],
+    explanation: "Bơm hoặc vá săm giúp xe chạy tiếp.",
+  },
+  {
+    id: "story",
+    item: "Sách truyện",
+    icon: "📚",
+    condition: "Em đã đọc xong",
+    best: ["Share"],
+    explanation: "Cho bạn mượn để nhiều người cùng vui với câu chuyện.",
+  },
+  {
+    id: "jar",
+    item: "Lọ thủy tinh",
+    icon: "🫙",
+    condition: "Rỗng và còn nguyên",
+    best: ["Reuse"],
+    explanation: "Lọ sạch có thể dùng đựng đồ nhỏ hoặc cắm hoa.",
+  },
+  {
+    id: "paper",
+    item: "Tờ giấy",
+    icon: "📄",
+    condition: "Một mặt còn trắng",
+    best: ["Reuse"],
+    explanation: "Dùng mặt còn lại để vẽ hoặc ghi nháp.",
+  },
+  {
+    id: "chair",
+    item: "Ghế",
+    icon: "🪑",
+    condition: "Lỏng một con ốc",
+    best: ["Repair"],
+    explanation: "Nhờ người lớn siết ốc để ghế chắc chắn trở lại.",
+  },
+  {
+    id: "phone",
+    item: "Điện thoại",
+    icon: "📱",
+    condition: "Cũ nhưng vẫn hoạt động",
+    best: ["Reuse", "Share"],
+    explanation: "Có thể tiếp tục dùng hoặc chuyển cho người cần.",
+  },
+  {
+    id: "bottle",
+    item: "Bình nước",
+    icon: "🥤",
+    condition: "Em thường mua chai nước dùng một lần",
+    best: ["Reduce"],
+    explanation: "Mang bình cá nhân giúp giảm chai dùng một lần.",
+  },
+  {
+    id: "toy",
+    item: "Gấu bông",
+    icon: "🧸",
+    condition: "Còn tốt nhưng em ít chơi",
+    best: ["Share"],
+    explanation: "Tặng hoặc đổi để bạn khác chơi tiếp.",
+  },
+  {
+    id: "shoe",
+    item: "Đôi giày",
+    icon: "👟",
+    condition: "Dây giày bị đứt",
+    best: ["Repair"],
+    explanation: "Thay dây giày là cách sửa đơn giản.",
+  },
+  {
+    id: "can",
+    item: "Lon nhôm",
+    icon: "🥫",
+    condition: "Đã dùng xong và sạch",
+    best: ["Recycle"],
+    explanation: "Thu gom lon sạch để tái chế theo hướng dẫn.",
+  },
+  {
+    id: "banana",
+    item: "Vỏ chuối",
+    icon: "🍌",
+    condition: "Còn lại sau bữa ăn",
+    best: ["Recycle"],
+    explanation: "Rác hữu cơ có thể được ủ phân nếu có nơi tiếp nhận.",
+  },
+  {
+    id: "lamp",
+    item: "Đèn bàn",
+    icon: "💡",
+    condition: "Bóng đèn hỏng",
+    best: ["Repair"],
+    explanation: "Nhờ người lớn thay bóng an toàn.",
+  },
+  {
+    id: "lunch",
+    item: "Hộp cơm",
+    icon: "🍱",
+    condition: "Em đang dùng hộp dùng một lần",
+    best: ["Reduce"],
+    explanation: "Chọn hộp dùng lại giúp giảm rác mỗi bữa.",
+  },
+  {
+    id: "tablet",
+    item: "Máy tính bảng",
+    icon: "📲",
+    condition: "Hỏng nặng và không thể sửa",
+    best: ["Recycle", "Dispose"],
+    explanation: "Đưa đến điểm thu gom thiết bị điện tử phù hợp.",
+  },
+  {
+    id: "notebook",
+    item: "Vở cũ",
+    icon: "📓",
+    condition: "Còn nhiều trang trắng",
+    best: ["Reuse"],
+    explanation: "Dùng các trang trắng để làm sổ nháp.",
+  },
+  {
+    id: "game",
+    item: "Trò chơi bàn",
+    icon: "🎲",
+    condition: "Em đã chơi xong và các mảnh còn đủ",
+    best: ["Share"],
+    explanation: "Cho lớp hoặc bạn mượn để cùng chơi.",
+  },
+];
